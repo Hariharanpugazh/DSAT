@@ -1,0 +1,78 @@
+{
+  "disclaimer": "DRAFT FOR CLINICIAN REVIEW - NOT A FINAL CLINICAL DOCUMENT",
+  "patient_demographics": {
+    "value": "Female",
+    "status": "verified",
+    "evidence_ids": [
+      "ev-a2ea2bf0"
+    ]
+  },
+  "admission_date": {
+    "value": "Missing - clinician review required",
+    "status": "missing",
+    "evidence_ids": []
+  },
+  "discharge_date": {
+    "value": "Missing - clinician review required",
+    "status": "missing",
+    "evidence_ids": []
+  },
+  "principal_diagnosis": {
+    "value": "ACUTE GASTROENTERITIS WITH DEHYDRATION",
+    "status": "verified",
+    "evidence_ids": [
+      "ev-7a896ac5"
+    ]
+  },
+  "secondary_diagnoses": {
+    "value": "URINARY TRACT INFECTION",
+    "status": "verified",
+    "evidence_ids": [
+      "ev-a823cc91"
+    ]
+  },
+  "hospital_course": {
+    "value": "Patient presented to us with above mentioned complaints. After evaluation, she was admitted to ward. Initial investigations showed normal CBC. Serum creatinine (1.65mg/dl) done was elevated. Serum electrolytes done showed low serum sodium(128.00mmol/L). Urine routine done showed ketone bodies(+), 10-12/hpf of pus cells, 15-20/hpf of epithelial cells with presence of bactreia. She was treated with IV fluids,.",
+    "status": "verified",
+    "evidence_ids": [
+      "ev-acedc4cd",
+      "ev-5fa7a2b0",
+      "ev-c83440f8",
+      "ev-e377d9ec",
+      "ev-9067a4c5",
+      "ev-242cd45e"
+    ]
+  },
+  "procedures": {
+    "value": "Missing - clinician review required",
+    "status": "missing",
+    "evidence_ids": []
+  },
+  "discharge_medications": {
+    "value": "Missing - clinician review required",
+    "status": "missing",
+    "evidence_ids": []
+  },
+  "allergies": {
+    "value": "Missing - clinician review required",
+    "status": "missing",
+    "evidence_ids": []
+  },
+  "follow_up_instructions": {
+    "value": "Missing - clinician review required",
+    "status": "missing",
+    "evidence_ids": []
+  },
+  "pending_results": {
+    "value": "urine culture and sensitivity sent- report awaited.",
+    "status": "verified",
+    "evidence_ids": [
+      "ev-335b4d7e"
+    ]
+  },
+  "discharge_condition": {
+    "value": "Missing - clinician review required",
+    "status": "missing",
+    "evidence_ids": []
+  }
+}

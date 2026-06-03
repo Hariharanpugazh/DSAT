@@ -1,0 +1,2 @@
+[console_scripts]
+discharge-agent = discharge_agent.cli:main

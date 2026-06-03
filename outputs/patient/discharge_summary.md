@@ -1,0 +1,37 @@
+# DRAFT FOR CLINICIAN REVIEW - NOT A FINAL CLINICAL DOCUMENT
+
+## Patient Demographics
+Female; ASIDA 0327; J.K.G (ev-70b591e5, ev-0bc57d24, ev-cd108a48)
+
+## Admission Date
+Conflicting - clinician review required
+
+## Discharge Date
+Missing - clinician review required
+
+## Principal Diagnosis
+Conflicting - clinician review required
+
+## Secondary Diagnoses
+Urinary Tract Infection; colitis (ev-689ed80d, ev-12e0bebc)
+
+## Hospital Course
+Patient presented to us with above mentioned complaints. After evaluation, she was admitted to ward.; Initial investigations showed normal CBC.; Serum creatinine (1.65mg/dl) done was elevated.; Serum electrolytes done showed low serum sodium(128.00mmol/L).; Urine routine done showed ketone bodies(+), 10-12/hpf of pus cells, 15-20/hpf of epithelial cells with presence of bactreia; IV antibiotics, IV PPI's, IV antiemetics and other supportive measures.; Repeat Serum Creatinine(1.17mg/dl) done was normal.; TSH and Free T4 done were normal.; Stool routine done showed 2-3/hpf of red blood cells, plenty/hpf of pus cells.; Patient was advised to stay back for further management but attenders not willing to the same, hence being discharged at request with following advice.; Pulse 116 b/m; BP 87/50; Temp 98°F; SaO2 on air 96%; GCS 15/15; RR 22 b/m; Blood Glucose 443 mg/dl; Pain score 4/10; Patient Hand over taken from Evening duty Staff to Night duty Staff.; Bed Rounds done; Conscious and Oriented; IV cannula present; Foley's catheter present; IV FNS 1000ml 1hr on flow; 2nd hourly GRBS monitoring present; Vital Signs monitored; Temp: 98°F; Bp: 110/80 mmHg; HR: 85 bt/min; PR: 23 br/min; Spo2: 98%; Foley's catheter clamped as per advice Dr.; orally soft diet taken; one episode of chills and Tachycardia; Informed to Dr. and advice given.; fever Spike Temp-103F; Patient was settled; had a Good Sleep; Bed bath Given, Bed making done, comfortable position given.; bowel opened; GRBS checked and recorded in chart; Hand over Given to Morning duty Staff; Patient seen by Dr Sin Adv; Patient shifted to ward; Patient given Campus 10 unit; All report handover given to ward staff; Patient charge handover given to staff; No bed sores; PULSES + -; Vitals checked and recorded in ER chart; Patient seen by Doctor; Blood investigations sent to labs; Case and blood reports informed to Dr. Shunya Sampal; Admission to HDU; Patient transferred to 3rd Floor; Patient received to SDDU on 1st floor Gyno; Patient said sounds done and observed conscious; Right upper cannula and operative band present; Capillary Blood Glucose (GRBS) monitored 8th hourly; Patient care handover given to night duty staff; Patient care handover taken from Evening duty staff; Patient conscious and oriented; Patient IV cannula and AD band present; Patient vitals checked and recorded to monitor (ev-8a8e0b1e, ev-de301e05, ev-38d1152e, ev-b5490937, ev-9495bbd9, ev-cc401315, ev-4856855c, ev-a6231a73, ev-fce868e7, ev-b1e07292, ev-f562b359, ev-56376296, ev-e7bce961, ev-f4d7a3aa, ev-126dcd04, ev-ca105178, ev-31cd8731, ev-32691a64, ev-fa756c97, ev-541e08bc, ev-de490ef7, ev-8119786b, ev-f1407934, ev-68669cc5, ev-2aabfc40, ev-494503d7, ev-e60c46a6, ev-b2dce7e2, ev-1d512d16, ev-03dedf97, ev-c682afc3, ev-a712fe9c, ev-28f132fe, ev-fe538698, ev-8fd1ac0a, ev-54d0cb08, ev-d2e44e81, ev-bb29bd25, ev-72118b6f, ev-9fc2227d, ev-9c1480ba, ev-641c3e17, ev-c580820f, ev-6ded27a8, ev-525c7c2d, ev-10a879db, ev-9b1beb16, ev-b4f58c37, ev-d60fa7b3, ev-9dafcbc0, ev-2ae2fb5d, ev-2a86ac7f, ev-42ebea14, ev-3d6dd02a, ev-48a44c2c, ev-cc6526d2, ev-6cee4b0b, ev-0da79af8, ev-6e3b2262, ev-54855cff, ev-155bd247, ev-f1ef4649, ev-04dc0d1f, ev-36442d83, ev-24c114b1)
+
+## Procedures
+IV Canulization done in left hand 20g; CT KUB plan; CT KUB cancelled; CT KUB done; IV Cannulization (18-G) on 06/02/26; IV Cannulization (18-G) on 27/2/2; IV Cannulization (18-G) on 28/2/26; IV Cannulization (18-G) on 1/3/26; IV Cannulization (21-G) on 2/3/26; Felley's Catheterisation (16F) on 06/02/26; Felley's Catheterisation (16F) on 27/2/2; Felley's Catheterisation (16F) on 28/2/26; Felley's Catheterisation R/C Rimar on 1/3/26; Phototherapy on 27/2/2; Urine C./S. on 27/2/2; Blood C./S. on 27/2/2; PD Sets & Vein O Line (100ml) on 06/02/26; PD Sets & Vein O Line on 27/2/2; PD Sets & Vein O Line on 28/2/26; PD Sets & Vein O Line on 1/3/26; PD Sets & Vein O Line on 2/3/26; Oxygen on 06/02/26; USG/ECHO on 27/2/2; IV cannulation done; ECG done (ev-18259771, ev-feff1bbe, ev-5ea6006b, ev-f44ecdcc, ev-1735cc08, ev-74c1bb47, ev-111302c5, ev-8ffd9cb1, ev-fb3c5b06, ev-e0234cd1, ev-29b050d4, ev-00b93b21, ev-84ff03ab, ev-a1f6d222, ev-edaa3760, ev-837d6021, ev-3868d122, ev-fa5ffdda, ev-1d71ead6, ev-287064b1, ev-f1789264, ev-feb80a81, ev-279fc5b3, ev-cd2119e6, ev-9e705b6f)
+
+## Discharge Medications
+TAB M STRONG 1-0-0 15 DAYS [added] - reason not documented; reconcile; TAB. EMESET 4MG 1-1-1 3 DAYS [added] - reason not documented; reconcile; TAB. ENTRC 1-0-1 3 DAYS [added] - reason not documented; reconcile; TAB. LOPIRAMIDE 2MG 1-0-1 5 DAYS [added] - reason not documented; reconcile; TAB. MEFTAL SPAS 1 TAB SOS 4 TABLETS [added] - reason not documented; reconcile; TAB. OFLOX TZ 1-0-1 5 DAYS [added] - reason not documented; reconcile; TAB. RACIPER 40MG 1-0-0 7 DAYS [added] - reason not documented; reconcile; TAB. ZEDOTT 1-1-1 3 DAYS [added] - reason not documented; reconcile (ev-c0ea3270, ev-c755b4d8, ev-aa63eacd, ev-a47d1d7b, ev-43ec813c, ev-2f1a3e00, ev-c6cb0dc6, ev-f70bc1a7)
+
+## Allergies
+Drug Allergy: Not known; Not known; No known drug allergies (ev-0351de4e, ev-8ce80ff4, ev-17a58925)
+
+## Follow-up Instructions
+Review immediately in case of fever, loose stools, vomiting, fatigue.; Review on 09.03.2026. CBC (ev-25472eae, ev-92244319)
+
+## Pending Results
+urine culture and sensitivity sent- report awaited.; Urine culture and sensitivity sent- report awaited.; CBL, creat, SE; ABG, urine; Ech; CBC; S. Creus; PC results pending; CBC and serum creatinine results pending (ev-e1efea46, ev-af4bdd92, ev-6e2bc1f8, ev-d8baacb1, ev-40e7f477, ev-ef6feca8, ev-63343330, ev-d1280dc1, ev-ab3c47c8, ev-69601c43)
+
+## Discharge Condition
+Hemodynamically stable (ev-62dc8ae6)

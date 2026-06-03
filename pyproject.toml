@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "discharge-summary-agent"
+version = "0.1.0"
+description = "Clinically safe, auditable discharge-summary drafting agent"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "google-genai>=1.47.0",
+  "pydantic>=2.10.0",
+  "PyMuPDF>=1.25.0",
+  "python-dotenv>=1.0.0",
+  "streamlit>=1.45.0",
+  "tenacity>=9.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[project.scripts]
+discharge-agent = "discharge_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
