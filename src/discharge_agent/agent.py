@@ -25,6 +25,7 @@ from .tools import (
     validate_grounding,
 )
 from .part2.correction_memory import CorrectionMemory, DEFAULT_MEMORY_PATH
+from .part2.refinement import refine_summary_with_memory
 
 
 class DischargeSummaryAgent:
@@ -311,37 +312,19 @@ class DischargeSummaryAgent:
                     step.next_decision = "Validate grounding."
 
                 elif action == "refine_draft_with_memory":
-                    # Part 2: apply correction-memory few-shot refinement to the raw draft.
+                    # Part 2: apply correction-memory deterministic refinement to the raw draft.
                     # Safety guarantees preserved:
                     #   - Only non-missing, non-conflicting sections are touched.
-                    #   - evidence_ids are never modified.
+                    #   - evidence_ids and field status are never modified.
                     #   - The grounding validator runs immediately after this step.
-                    #   - Provider falls back to original on any Gemini error.
                     assert state.summary is not None
                     assert _correction_memory is not None
-                    sections_refined = 0
-                    for field_name in SUMMARY_FIELD_NAMES:
-                        field = getattr(state.summary, field_name)
-                        if field.status in (FactStatus.missing, FactStatus.conflicting):
-                            continue
-                        examples = _correction_memory.get_examples(field_name)
-                        if not examples:
-                            continue
-                        try:
-                            refined_value = self.provider.refine_section_with_memory(
-                                field_name, field.value, examples
-                            )
-                        except Exception:
-                            # Never fail the whole run over a refinement error
-                            refined_value = field.value
-                        if refined_value and refined_value != field.value:
-                            # Rebuild field preserving status and evidence_ids; only value changes
-                            updated_field = field.model_copy(update={"value": refined_value})
-                            setattr(state.summary, field_name, updated_field)
-                            sections_refined += 1
+                    report = refine_summary_with_memory(state.summary, _correction_memory)
+                    state.summary = report.draft
                     refinement_done = True
                     step.result = (
-                        f"Memory refinement applied to {sections_refined} section(s). "
+                        f"Memory refinement applied to {report.sections_changed} section(s) "
+                        f"({', '.join(report.changed_sections) or 'none'}). "
                         "Grounding validator will run next."
                     )
                     step.next_decision = "Validate grounding on refined draft."

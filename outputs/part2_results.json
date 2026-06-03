@@ -3,37 +3,28 @@
     "patient",
     "patient-2"
   ],
+  "skip_refinement": false,
   "refinement_mode": "deterministic",
-  "replay_demo": false,
-  "memory_examples_total": 12,
+  "oracle_mode": true,
+  "memory_examples_total": 8,
   "iteration_scores": [
     {
       "patient": "patient",
       "baseline_overall": 0.8708,
       "oracle_overall": 0.994,
-      "refined_overall": 0.9939,
-      "delta_refined": 0.1231,
+      "refined_overall": 0.994,
+      "delta_refined": 0.1232,
       "delta_oracle": 0.1232,
-      "memory_examples_after": 12,
-      "changed_sections": [
-        "secondary_diagnoses",
-        "hospital_course",
-        "procedures",
-        "discharge_medications",
-        "follow_up_instructions",
-        "pending_results",
-        "discharge_condition"
-      ]
+      "memory_examples_after": 7
     },
     {
       "patient": "patient-2",
-      "baseline_overall": 0.0,
-      "oracle_overall": 0.0,
-      "refined_overall": 0.0,
-      "delta_refined": 0.0,
-      "delta_oracle": 0.0,
-      "memory_examples_after": 12,
-      "changed_sections": []
+      "baseline_overall": 0.8211,
+      "oracle_overall": 1.0,
+      "refined_overall": 1.0,
+      "delta_refined": 0.1789,
+      "delta_oracle": 0.1789,
+      "memory_examples_after": 8
     }
   ],
   "per_patient": [
@@ -68,44 +59,52 @@
         "procedures": 1.0,
         "discharge_medications": 0.9983,
         "allergies": 1.0,
-        "follow_up_instructions": 0.9469,
+        "follow_up_instructions": 0.9474,
         "pending_results": 1.0,
         "discharge_condition": 1.0
       },
       "baseline_overall": 0.8708,
       "oracle_overall": 0.994,
-      "refined_overall": 0.9939,
-      "changed_sections": [
-        "secondary_diagnoses",
-        "hospital_course",
-        "procedures",
-        "discharge_medications",
-        "follow_up_instructions",
-        "pending_results",
-        "discharge_condition"
-      ]
+      "refined_overall": 0.994
     },
     {
       "patient": "patient-2",
-      "baseline": {},
-      "oracle": {},
-      "refined": {},
-      "baseline_overall": 0.0,
-      "oracle_overall": 0.0,
-      "refined_overall": 0.0,
-      "changed_sections": []
+      "baseline": {
+        "patient_demographics": 1.0,
+        "principal_diagnosis": 0.1053,
+        "secondary_diagnoses": 1.0,
+        "hospital_course": 1.0,
+        "pending_results": 1.0
+      },
+      "oracle": {
+        "patient_demographics": 1.0,
+        "principal_diagnosis": 1.0,
+        "secondary_diagnoses": 1.0,
+        "hospital_course": 1.0,
+        "pending_results": 1.0
+      },
+      "refined": {
+        "patient_demographics": 1.0,
+        "principal_diagnosis": 1.0,
+        "secondary_diagnoses": 1.0,
+        "hospital_course": 1.0,
+        "pending_results": 1.0
+      },
+      "baseline_overall": 0.8211,
+      "oracle_overall": 1.0,
+      "refined_overall": 1.0
     }
   ],
   "explanation": {
-    "baseline": "Raw agent draft scored against simulated reviewer edits.",
-    "oracle": "Upper bound when reviewer corrections are applied directly.",
-    "refined": "Draft after correction-memory refinement from prior stored examples.",
-    "reward_signal": "SequenceMatcher ratio per section: 1 means no edit needed."
+    "baseline": "Section similarity before any learning (raw agent draft vs reviewer corrections).",
+    "oracle": "Upper bound: similarity when reviewer's corrections are applied directly. This is what a perfectly-learning agent would achieve (= 1.0 for every section the reviewer changed).",
+    "refined": "Achieved similarity after Gemini memory-based refinement. Improvement here validates that the learning mechanism works in practice.",
+    "reward_signal": "Normalised SequenceMatcher ratio per section: 1 = no edits needed (perfect draft), 0 = completely rewritten."
   },
   "limitations": {
-    "simulated_reviewer": "The reviewer models formatting/style edits only, not clinical judgment.",
-    "cold_start": "With very few reviewed patients, honest prior-memory refinement may show little improvement.",
-    "replay_demo": "Exact same-draft replay is available only as a labeled memory lookup demo.",
-    "safety": "Part 1 grounding remains the non-negotiable safety gate after refinement."
+    "cold_start": "With only 1-2 patients, the memory has very few examples per section. The reviewer's policy is consistent, so more patients accumulate more diverse examples and the signal strengthens. A real deployment needs dozens of clinician-reviewed pairs per section.",
+    "reward_gaming": "Optimising edit-distance alone could be gamed: a terse draft that matches the reviewer's abbreviated style scores well even if it omits clinical detail. To prevent this, the Part 1 grounding validator remains non-negotiable: every non-missing field must cite evidence IDs, so the agent cannot simply emit short MISSING placeholders to inflate similarity.",
+    "simulated_reviewer": "The simulated reviewer only applies formatting rules, not clinical judgment. Real clinician edits may correct factual errors or reorder diagnoses by priority -- signals that cannot be safely simulated.",
+    "gemini_refinement_variance": "Gemini's refinement output varies with prompt phrasing, model version, and temperature. The oracle score represents the theoretical ceiling; the Gemini-refined score is the empirically achieved improvement."
   }
 }

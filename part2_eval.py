@@ -1,14 +1,14 @@
-"""Part 2 evaluation script — Learning from Doctor Edits.
+"""Part 2 evaluation script -- Learning from Doctor Edits.
 
 This script demonstrates the full learning loop:
 
   Iteration 0 (baseline):
-    Load existing patient draft → compute similarity vs reviewer corrections
+    Load existing patient draft -> compute similarity vs reviewer corrections
     (no correction memory yet).
 
   Iteration 1 (after learning):
-    Store reviewer corrections in memory → apply memory-based style refinement
-    → re-compute similarity.
+    Store reviewer corrections in memory -> apply memory-based style refinement
+    -> re-compute similarity.
 
   Oracle reference:
     Replace each section with the reviewer's corrected version directly.
@@ -63,7 +63,7 @@ def oracle_draft(
 ) -> DischargeSummaryDraft:
     """Build a draft where each section's value is replaced with the reviewer's correction.
 
-    This is the CEILING — what a perfectly-learning agent would produce.
+    This is the CEILING -- what a perfectly-learning agent would produce.
     The grounding validator would still need to pass; we do not alter evidence_ids here.
     """
     updates: dict[str, SummaryField] = {}
@@ -134,7 +134,7 @@ def apply_memory_refinement(
         if refined_value and refined_value != field.value:
             refined_fields[field_name] = field.model_copy(update={"value": refined_value})
             sections_changed += 1
-            print(f"    [{field_name}] {repr(field.value[:55])} → {repr(refined_value[:55])}")
+            print(f"    [{field_name}] {repr(field.value[:55])} -> {repr(refined_value[:55])}")
         else:
             refined_fields[field_name] = field
 
@@ -177,7 +177,7 @@ def print_table(title: str, rows: list[tuple]) -> None:
         else:
             _, before, after = row
             delta = after - before
-            sym = "↑" if delta > 0.001 else ("↓" if delta < -0.001 else "=")
+            sym = "^" if delta > 0.001 else ("v" if delta < -0.001 else "=")
             print(f"  {section:<{col_w}} {before:>10.3f} {after:>8.3f} {sym}{abs(delta):>6.3f}")
     print(f"{'='*70}\n")
 
@@ -206,16 +206,16 @@ def run_evaluation(
     all_results: list[dict] = []
     iteration_scores: list[dict] = []
 
-    print(f"\nPart 2 Evaluation — {len(patients)} patient(s)")
+    print(f"\nPart 2 Evaluation -- {len(patients)} patient(s)")
     print(f"Correction memory: {memory_path} ({memory.total_examples()} examples at start)")
     print(f"Oracle mode: {'ON' if show_oracle else 'OFF'}")
     refinement_label = 'SKIPPED' if skip_refinement else ('Deterministic (memory lookup)' if deterministic else 'Gemini + deterministic fallback')
     print(f"Refinement: {refinement_label}")
 
     for patient_label in patients:
-        print(f"\n{'─'*70}")
+        print(f"\n{'-'*70}")
         print(f"Patient: {patient_label}  |  memory total before: {memory.total_examples()}")
-        print(f"{'─'*70}")
+        print(f"{'-'*70}")
 
         draft = load_draft(patient_label, output_root)
         if draft is None:
@@ -225,7 +225,7 @@ def run_evaluation(
         baseline_per_section, baseline_overall = score_draft(draft, reviewer)
         print(f"  Baseline overall similarity: {baseline_overall:.3f}")
 
-        # --- Apply reviewer → get corrections ---
+        # --- Apply reviewer -> get corrections ---
         review_result = reviewer.review(draft)
         draft_values = draft_section_values(draft)
 
@@ -298,10 +298,10 @@ def run_evaluation(
         print(f"\n{'='*70}")
         print("  Improvement Curve (per patient iteration)")
         print(f"{'='*70}")
-        print(f"  {'Patient':<20} {'Baseline':>10} {'Oracle':>8} {'Refined':>9} {'Δ Refined':>10}")
+        print(f"  {'Patient':<20} {'Baseline':>10} {'Oracle':>8} {'Refined':>9} {'D Refined':>10}")
         print(f"  {'-'*20} {'--------':>10} {'------':>8} {'-------':>9} {'---------':>10}")
         for row in iteration_scores:
-            sym = "↑" if row["delta_refined"] > 0.001 else "="
+            sym = "^" if row["delta_refined"] > 0.001 else "="
             print(
                 f"  {row['patient']:<20} "
                 f"{row['baseline_overall']:>10.3f} "
@@ -313,9 +313,11 @@ def run_evaluation(
 
     # --- Save results ---
     results_path.parent.mkdir(parents=True, exist_ok=True)
+    refinement_mode = "skipped" if skip_refinement else ("deterministic" if deterministic else "gemini_with_fallback")
     payload = {
         "patients_evaluated": patients,
         "skip_refinement": skip_refinement,
+        "refinement_mode": refinement_mode,
         "oracle_mode": show_oracle,
         "memory_examples_total": memory.total_examples(),
         "iteration_scores": iteration_scores,
@@ -353,7 +355,7 @@ def run_evaluation(
             "simulated_reviewer": (
                 "The simulated reviewer only applies formatting rules, not clinical judgment. "
                 "Real clinician edits may correct factual errors or reorder diagnoses by "
-                "priority — signals that cannot be safely simulated."
+                "priority -- signals that cannot be safely simulated."
             ),
             "gemini_refinement_variance": (
                 "Gemini's refinement output varies with prompt phrasing, model version, "
